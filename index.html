@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Convite para Jantar</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #fff8f0;
+      color: #333;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #e85d75;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    input, select, button, textarea {
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 2px solid #eee;
+      border-radius: 10px;
+    }
+    button {
+      background-color: #ff9aa2;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e85d75;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Oi Lívia!</h1>
+    <p>Gostaria de te convidar para um jantar especial. Que tal?</p>
+    <form action="https://formsubmit.co/kennedycestevam@gmail.com" method="POST">
+      <label>
+        Sua resposta:
+        <select name="resposta" required onchange="toggleTempo(this.value)">
+          <option value="" disabled selected>Escolha uma opção</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+          <option value="Sim, daqui a...">Sim, daqui a...</option>
+        </select>
+      </label>
+      <div id="tempo-container" style="display: none;">
+        <label>
+          Em quanto tempo podemos nos encontrar?
+          <input type="text" name="tempo" placeholder="Ex: 2 semanas, depois do trabalho, etc." />
+        </label>
+      </div>
+      <input type="text" name="nome" placeholder="Seu nome" required />
+      <button type="submit">Enviar Resposta</button>
+      <input type="hidden" name="_captcha" value="false">
+    </form>
+  </div>
+  <script>
+    function toggleTempo(value) {
+      document.getElementById('tempo-container').style.display = value === "Sim, daqui a..." ? "block" : "none";
+    }
+  </script>
+</body>
+</html>
