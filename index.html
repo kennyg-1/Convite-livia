@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convite para um jantar</title>
+  <title>Convite para Jantar</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #ffe0ec, #e0f7ff);
       color: #333;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 30px;
+      min-height: 100vh;
+      padding: 20px;
     }
     .card {
-      background-color: white;
+      background-color: #fff;
       border-radius: 20px;
-      padding: 30px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
       max-width: 500px;
       width: 100%;
     }
@@ -27,9 +28,14 @@
       color: #e91e63;
       text-align: center;
     }
-    label, p {
+    p {
       font-size: 1.1em;
-      margin-top: 15px;
+      margin: 20px 0 10px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-size: 1em;
     }
     input[type="text"], textarea {
       width: 100%;
@@ -37,47 +43,46 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       margin-top: 8px;
+      box-sizing: border-box;
     }
-    .options {
-      margin-top: 20px;
-    }
-    button, a.button {
+    .button-link {
+      display: inline-block;
       background-color: #e91e63;
       color: white;
       padding: 10px 20px;
-      border: none;
       border-radius: 10px;
       text-decoration: none;
-      cursor: pointer;
-      margin-top: 20px;
-      display: inline-block;
+      margin-top: 10px;
     }
-    button:hover, a.button:hover {
+    .button-link:hover {
       background-color: #d81b60;
+    }
+    .radio-group {
+      margin-top: 10px;
+    }
+    .radio-group input {
+      margin-right: 5px;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Oi Lívia 💕</h1>
+    <h1>Oi Lívia 💖</h1>
     <p>Queria te convidar para jantar comigo. Vai se apegar?</p>
 
-    <div class="options">
-      <p><strong>Você aceita?</strong></p>
-      <a href="https://api.whatsapp.com/send/?phone=48996670383&text&type=phone_number&app_absent=0" class="button">Sim, eu aceito!</a>
-
-      <p>Não 😢</p>
-
-      <p>Sim, mas em outro momento:</p>
+    <div class="radio-group">
+      <label><input type="radio" name="resposta" onclick="window.open('https://api.whatsapp.com/send/?phone=48996670383&text&type=phone_number&app_absent=0')"> Sim, eu aceito!</label>
+      <label><input type="radio" name="resposta"> Não 😢</label>
+      <label><input type="radio" name="resposta"> Sim, mas em outro momento:</label>
       <textarea placeholder="Quando seria um bom momento?"></textarea>
     </div>
 
-    <div class="options">
-      <p><strong>Sobre o local do jantar:</strong></p>
-      <p>Sugerir um local:</p>
-      <input type="text" placeholder="Digite sua sugestão aqui" />
+    <p>Sobre o local do jantar:</p>
+    <label>Sugerir um local:</label>
+    <input type="text" placeholder="Digite sua sugestão aqui" />
 
-      <p>Ou pode deixar que eu escolho 😄</p>
+    <div class="radio-group">
+      <label><input type="radio" name="local"> Se preferir, eu escolho :)</label>
     </div>
   </div>
 </body>
